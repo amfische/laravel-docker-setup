@@ -15,5 +15,8 @@
 ### seeding db from zipped tar
  - `make dbcreate`
  - `docker-compose exec db bash`
- - `cd /seed && gzip -d report.sql.gz`
- - `mysql -uroot -p app < report.sql`
+ - Unzip first
+   - `cd /seed && gzip -d report.sql.gz`
+   - `mysql -uroot -p app < report.sql`
+ - One-liner
+   - `zcat report.sql.gz | mysql -uroot -p app`
